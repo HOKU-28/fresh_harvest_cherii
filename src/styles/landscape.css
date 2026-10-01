@@ -1,0 +1,74 @@
+/* The Fresh Harvest — Landscape Vector Depth Styling */
+
+:root {
+  /* Default: Morning Valley (Variation 1 DNA) */
+  --sky-zenith: #F8F8F5;
+  --sky-horizon: #EEF1EA;
+
+  --sun-core-color: #FFFFFF;
+  --sun-halo-color: #FFFDF5;
+  --sun-halo-opacity: 0.45;
+
+  --mountain-far-fill: #C5D2BE;
+  --mountain-mid-fill: #A7B89F;
+  --mountain-saddle-fill: #8EA187;
+
+  --mist-color: #EEF1EA;
+  --mist-opacity: 0.65;
+
+  --terrace-slope-1: #6F8A6B;
+  --terrace-slope-2: #587354;
+  --terrace-slope-3: #3B5B43;
+  --terrace-rim-stroke: #EAA063;
+  --terrace-rim-opacity: 0;
+
+  --valley-water-surface: #DDE6DA;
+  --valley-water-deep: #B8C7B5;
+
+  --ridge-near-fill: #2E5D32;
+  --ground-shadow-fill: #1A281E;
+
+  --foliage-leaves-fill: #2E5D32;
+  --foliage-shadow-fill: #1A281E;
+  --cherry-fill: #A32B2B;
+  --cherry-highlight: #C83E3E;
+
+  --shadow-overlay-opacity: 0;
+}
+
+/* Master SVG Canvas */
+.hero-svg-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  shape-rendering: geometricPrecision;
+  user-select: none;
+}
+
+/* Hardware Accelerated Sun Group */
+#celestial-sun {
+  will-change: transform;
+  transform-origin: center;
+}
+
+/* Adaptive Ambient Scrim for Typography Contrast */
+.hero-scrim-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 85% 65% at 22% 38%,
+    rgba(22, 18, 24, 0.48) 0%,
+    rgba(22, 18, 24, 0.22) 50%,
+    transparent 80%
+  );
+  opacity: var(--scrim-opacity);
+  transition: opacity 0.15s ease-out;
+  z-index: 5;
+}
+
+/* Typography Container Smooth Transition */
+.hero-typography-container {
+  color: var(--hero-headline-color);
+  transition: color 0.2s ease-out;
+}

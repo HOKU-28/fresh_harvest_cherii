@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dynamic Scrub Variable (0.0 = Morning Valley, 1.0 = Golden Hour) */
+  --scrub: 0;
+
+  /* Solar Arc Dynamic Coordinates */
+  --sun-cx: 72%;
+  --sun-cy: 44%;
+
+  /* Adaptive Scrim Opacity (Contrast Protector) */
+  --scrim-opacity: 0;
+
+  /* Adaptive Copy Colors */
+  --hero-headline-color: #1F1F1F;
+  --hero-subtext-color: #4A554A;
+  --hero-eyebrow-color: #5A6756;
+  --hero-btn-bg: #1F1F1F;
+  --hero-btn-text: #F8F8F5;
+  --hero-btn-border: rgba(31, 31, 31, 0.22);
+}
+
+/* Ensure smooth hardware rendering */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F5;
+}
+
+/* Base Editorial Typography */
+h1, h2, h3, .font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+body, p, span, button, .font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Checkout SVG Success Animation (Hardware accelerated, strictly plays once) */
+@keyframes checkoutDrawCircle {
+  0% {
+    stroke-dashoffset: 190;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkoutDrawCheck {
+  0% {
+    stroke-dashoffset: 40;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkoutFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-checkout-circle {
+  stroke-dasharray: 190;
+  stroke-dashoffset: 190;
+  animation: checkoutDrawCircle 0.35s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.anim-checkout-check {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: checkoutDrawCheck 0.30s cubic-bezier(0.65, 0, 0.45, 1) 0.35s forwards;
+}
+
+.anim-checkout-heading {
+  opacity: 0;
+  animation: checkoutFadeSlide 0.25s ease-out 0.70s forwards;
+}
+
+.anim-checkout-text {
+  opacity: 0;
+  animation: checkoutFadeSlide 0.25s ease-out 0.85s forwards;
+}
+
+.anim-checkout-action {
+  opacity: 0;
+  animation: checkoutFadeSlide 0.25s ease-out 0.95s forwards;
+}
+
+/* Coffee Region Marquee Ticker (Smooth Jazz Cadence & Gentle Breathing Rhythm) */
+@keyframes tickerScrollJazz {
+  0.000%   { transform: translate3d(0.000%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  8.333%   { transform: translate3d(-4.167%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  16.667%  { transform: translate3d(-8.333%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  25.000%  { transform: translate3d(-12.500%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  33.333%  { transform: translate3d(-16.667%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  41.667%  { transform: translate3d(-20.833%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  50.000%  { transform: translate3d(-25.000%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  58.333%  { transform: translate3d(-29.167%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  66.667%  { transform: translate3d(-33.333%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  75.000%  { transform: translate3d(-37.500%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  83.333%  { transform: translate3d(-41.667%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  91.667%  { transform: translate3d(-45.833%, 0, 0); animation-timing-function: cubic-bezier(0.38, 0.22, 0.62, 0.78); }
+  100.000% { transform: translate3d(-50.000%, 0, 0); }
+}
+
+.anim-ticker-scroll {
+  animation: tickerScrollJazz 82s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .anim-checkout-circle,
+  .anim-checkout-check {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .anim-checkout-heading,
+  .anim-checkout-text,
+  .anim-checkout-action {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .anim-ticker-scroll {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
